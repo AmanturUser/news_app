@@ -59,7 +59,9 @@ class _NewsListScreenState extends State<NewsListScreen> {
         ],
       ),
       body: BlocBuilder<NewsBloc, NewsState>(
-        buildWhen: (previous, current) => previous.status != current.status || previous.isLoadingMore != current.isLoadingMore,
+        buildWhen: (previous, current) =>
+            previous.status != current.status ||
+            previous.isLoadingMore != current.isLoadingMore,
         builder: (context, state) {
           if (state.status == FormStatus.submissionInProgress) {
             return const Center(
@@ -134,13 +136,10 @@ class _NewsListScreenState extends State<NewsListScreen> {
                     Padding(
                       padding: const EdgeInsets.all(16),
                       child: Center(
-                        child: state.isLoadingMore
-                            ? const SpinKitThreeBounce(
-                                color: Colors.deepPurple,
-                                size: 24.0,
-                              )
-                            : const SizedBox.shrink(),
-                      ),
+                          child: const SpinKitThreeBounce(
+                        color: Colors.deepPurple,
+                        size: 24.0,
+                      )),
                     )
                 ],
               ),
